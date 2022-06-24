@@ -26,7 +26,7 @@ import { constructBalancerLink } from '~/utils/balancer';
 import { calcPercentageDifference, toApproxCurrency } from '~/utils/converters';
 import { classNames } from '~/utils/helpers';
 import { marketSymbolToAssetName } from '~/utils/poolNames';
-import { getPriceFeedUrl, getBaseAssetFromMarket } from '~/utils/poolNames';
+import { getPriceFeedUrl, getBaseAssetFromMarket, getMarketLeverage } from '~/utils/poolNames';
 import PoolDetailsModal from '../PoolDetailsModal';
 import { BrowseTableRowData, DeltaEnum } from '../state';
 
@@ -351,7 +351,7 @@ const PoolRow: React.FC<
                 <TableRowCell rowSpan={2}>
                     <div className="mb-1 flex font-bold">
                         <OracleDetailsBadgeContainer>
-                            <div className="mr-2 text-lg">{pool.leverage}</div>
+                            <div className="mr-2 text-lg">{getMarketLeverage(pool.name)}</div>
                             <OracleDetailsBadge oracleDetails={pool.oracleDetails} />
                         </OracleDetailsBadgeContainer>
                     </div>
@@ -489,7 +489,7 @@ const PoolRow: React.FC<
                     account={account}
                     tokenInfo={pool.longToken}
                     deltaDenotation={deltaDenotation}
-                    leverage={pool.leverage}
+                    leverage={getMarketLeverage(pool.name)}
                     address={pool.address}
                     decimals={pool.decimals}
                     settlementTokenSymbol={pool.settlementTokenSymbol}
@@ -512,7 +512,7 @@ const PoolRow: React.FC<
                     }}
                     tokenInfo={pool.shortToken}
                     deltaDenotation={deltaDenotation}
-                    leverage={pool.leverage}
+                    leverage={getMarketLeverage(pool.name)}
                     address={pool.address}
                     decimals={pool.decimals}
                     settlementTokenSymbol={pool.settlementTokenSymbol}

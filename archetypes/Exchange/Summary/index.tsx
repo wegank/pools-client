@@ -7,6 +7,7 @@ import FlipSummary from './FlipSummary';
 import MintSummary from './MintSummary';
 import * as Styles from './styles';
 import { SummaryProps } from './types';
+import { getMarketLeverage } from '~/utils/poolNames';
 
 export default (({ pool, showBreakdown, amount, isLong, receiveIn, commitAction, gasFee }) => {
     const token = useMemo(() => (isLong ? pool.longToken : pool.shortToken), [isLong, pool.longToken, pool.shortToken]);
@@ -34,7 +35,7 @@ export default (({ pool, showBreakdown, amount, isLong, receiveIn, commitAction,
                             pool={{
                                 name: pool.name,
                                 oraclePrice: pool.oraclePrice,
-                                leverage: pool.leverage,
+                                leverage: getMarketLeverage(pool.name),
                                 settlementTokenSymbol: pool.settlementToken.symbol,
                             }}
                             gasFee={gasFee}

@@ -7,7 +7,7 @@ import { useStore } from '~/store/main';
 import { selectNetwork } from '~/store/Web3Slice';
 import { LoadingRows } from '~/types/hooks';
 import { formatBN } from '~/utils/converters';
-import { getMarketSymbol } from '~/utils/poolNames';
+import { getMarketLeverage, getMarketSymbol } from '~/utils/poolNames';
 import { useUpkeeps } from '../useUpkeeps';
 
 const STATIC_DEFAULT_UPKEEP = {
@@ -47,7 +47,7 @@ export const useBrowsePools = (): LoadingRows<BrowseTableRowData> => {
                     balancerPrices,
                     nextPoolState,
                 } = pool_;
-                const {
+                let {
                     address,
                     lastUpdate,
                     longToken,
@@ -60,6 +60,7 @@ export const useBrowsePools = (): LoadingRows<BrowseTableRowData> => {
                     keeper,
                     committer,
                 } = pool;
+                leverage = getMarketLeverage(name);
 
                 const leverageBN = new BigNumber(leverage);
 

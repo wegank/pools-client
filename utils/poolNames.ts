@@ -50,9 +50,9 @@ export const getMarketLeverage = (poolSymbol?: string): number => {
     if (!poolSymbol) {
         return 0;
     }
-    const leverageRegex = /([0-9]*)(?:|L|S)\-/g;
+    const leverageRegex = /([\.0-9]*)(?:|L|S)\-/g;
     const leverage = poolSymbol.match(leverageRegex);
-    return leverage ? parseInt(leverage[0].replace('-', '')) : 0;
+    return leverage ? parseFloat(leverage[0].replace('-', '')) : 0;
 };
 
 /**

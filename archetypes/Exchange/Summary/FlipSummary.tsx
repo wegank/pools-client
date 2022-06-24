@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { calcNotionalValue } from '@tracer-protocol/pools-js';
 
 import ArrowDown from '~/public/img/general/caret-down-white.svg';
-import { getBaseAsset } from '~/utils/poolNames';
+import { getBaseAsset, getMarketLeverage } from '~/utils/poolNames';
 import { ExpectedExposure, ExpectedFees, ExpectedFlipAmounts, ReceiveToken } from './Sections';
 import * as Styles from './styles';
 import { FlipSummaryProps } from './types';
@@ -23,7 +23,7 @@ const FlipSummary: React.FC<FlipSummaryProps> = ({ pool, isLong, amount, nextTok
 
     const flippedEquivalentExposure: number = expectedNotionalReturn
         .div(pool.oraclePrice)
-        .times(pool.leverage)
+        .times(getMarketLeverage(pool.name))
         .toNumber();
     const flippedCommitAmount: number = expectedNotionalReturn.div(pool.oraclePrice).toNumber();
 
@@ -46,7 +46,7 @@ const FlipSummary: React.FC<FlipSummaryProps> = ({ pool, isLong, amount, nextTok
                 commitAmount={flippedCommitAmount}
                 baseAsset={baseAsset}
                 oraclePrice={pool.oraclePrice}
-                poolLeverage={pool.leverage}
+                poolLeverage={getMarketLeverage(pool.name)}
                 showTransactionDetails={showTransactionDetails}
                 isLong={!isLong}
             />

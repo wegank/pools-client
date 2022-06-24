@@ -18,6 +18,7 @@ import FarmsTable from '../FarmsTable';
 import FilterBar from '../FilterSelects';
 import StakeModal from '../StakeModal';
 import { stakeReducer, StakeAction, StakeState, FarmTableRowData } from '../state';
+import { getMarketLeverage } from '~/utils/poolNames';
 
 const getFilterFieldsFromPoolTokenFarm: (farm: Farm) => { leverage: number; side: SideEnum } = (farm) => {
     const leverageSide = farm.name.split('-')[0];
@@ -134,9 +135,9 @@ export const StakeGeneric = ({
             case LeverageFilterEnum.All:
                 return true;
             case LeverageFilterEnum.One:
-                return pool.leverage === 1;
+                return getMarketLeverage(pool.name) === 1;
             case LeverageFilterEnum.Three:
-                return pool.leverage === 3;
+                return getMarketLeverage(pool.name) === 3;
             default:
                 return false;
         }
