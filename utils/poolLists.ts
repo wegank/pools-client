@@ -2,6 +2,8 @@ import { KnownNetwork, StaticPoolInfo } from '@tracer-protocol/pools-js';
 import { POOL_LIST_MAP } from '~/constants/pools';
 import { PoolList, PoolLists, PoolListUris } from '~/types/poolLists';
 
+const pool_addresses = process.env.NEXT_PUBLIC_POOL_ADDRESSES ?? "";
+
 export const flattenAllPoolLists = (poolLists: PoolLists | undefined): StaticPoolInfo[] =>
     poolLists
         ? poolLists.All.map((pool) => pool.pools)
@@ -73,13 +75,11 @@ const isStaticPoolInfo = (pool: any): pool is StaticPoolInfo => {
  */
 export const getAllPoolLists = async (network: KnownNetwork): Promise<PoolLists> => {
     const uris_ = uris(network);
-    const tracerList: PoolList = await get(uris_.Tracer).catch((e) => e);
+    // const tracerList: PoolList = await get(uris_.Tracer).catch((e) => e);
     const externalLists: PoolList[] = await Promise.all(uris_.External.map((uri) => get(uri).catch((e) => e)));
 
-    const validTracerList: PoolList =
-        (!(tracerList instanceof Error) || !tracerList) && isPoolList(tracerList)
-            ? tracerList
-            : {
+    const validTracerList: PoolList = 
+              {
                   name: 'Tracer',
                   pools: [],
               };
@@ -87,7 +87,7 @@ export const getAllPoolLists = async (network: KnownNetwork): Promise<PoolLists>
     const validExternalLists = externalLists.filter((list) => (!(list instanceof Error) || !list) && isPoolList(list));
     const importedList = {
         name: 'Imported',
-        pools: [],
+        pools: pool_addresses.split(',').map((address) => ({ address })),
     };
 
     const allLists = [validTracerList, importedList, ...validExternalLists];
