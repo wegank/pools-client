@@ -91,5 +91,8 @@
     },
     "lint-staged": {
         "*": "eslint */**/*.{js,ts,tsx} --cache --fix"
+    },
+    "resolutions": {
+        "ethereumjs-abi": "0.6.8"
     }
 }
