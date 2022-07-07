@@ -59,7 +59,7 @@ export const Browse: React.FC = () => {
     const searchFilter = useCallback(
         (pool: BrowseTableRowData): boolean => {
             const searchString = escapeRegExp(state.search.toLowerCase());
-            const marketName = marketSymbolToAssetName[pool.marketSymbol];
+            const marketName = marketSymbolToAssetName[pool.marketSymbol] ?? "";
             return Boolean(
                 marketName.toLowerCase().match(searchString) ||
                     pool.name.toLowerCase().match(searchString) ||
