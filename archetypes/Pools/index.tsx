@@ -135,13 +135,6 @@ export const Browse: React.FC = () => {
                                 <NetworkHint />
                             </NetworkHintContainer>
                         </PageTable.Heading>
-                        <PageTable.SubHeading>
-                            Unlocking Perpetual Pools v2 - take part in the Tracer Voyage to experience the true power
-                            of DeFi.{' '}
-                            <PageTable.Link href="https://tracer.finance/radar/the-tracer-voyage/">
-                                Learn More.
-                            </PageTable.Link>
-                        </PageTable.SubHeading>
                     </div>
                     <FilterSelects state={state} dispatch={dispatch} />
                 </PageTable.Header>

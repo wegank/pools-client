@@ -16,7 +16,7 @@ const OnboardTradeModal: React.FC<OnboardModalProps> = ({
             case 1:
                 return (
                     <>
-                        <Styles.Heading>Welcome to Tracer&#39;s Perpetual Pools</Styles.Heading>
+                        <Styles.Heading>Welcome to Pong</Styles.Heading>
 
                         <Styles.Content>
                             <Styles.Text>
@@ -72,12 +72,6 @@ const OnboardTradeModal: React.FC<OnboardModalProps> = ({
                                 Go long or short in a Pool to mint leveraged tokens. Just add funds and get new tokens
                                 in 8 hours.
                             </Styles.Text>
-                            <Styles.Text>
-                                What&#39;s the wait for? See the docs:{' '}
-                                <Styles.Link href="https://tracer.finance/radar/minting-burning/">
-                                    Minting and Burning.
-                                </Styles.Link>
-                            </Styles.Text>
                         </Styles.Content>
 
                         <ProgressIndicator totalSteps={5} currentStep={3} />
@@ -122,17 +116,7 @@ const OnboardTradeModal: React.FC<OnboardModalProps> = ({
 
                         <Styles.Content>
                             <Styles.Text>
-                                Browse the{' '}
-                                <Styles.Link href="https://pools.docs.tracer.finance/perpetual-pools/readme">
-                                    user documentation
-                                </Styles.Link>
-                                .
-                                <br />
-                                Check out <Styles.Link href="https://tracer.finance/radar/">Radar</Styles.Link>,
-                                Tracer&#39;s Blog.
-                                <br />
-                                Join the community on{' '}
-                                <Styles.Link href="https://discord.gg/TracerDAO">Discord</Styles.Link>.
+                                Pong is an opinionated experimental derivation of Tracer Perpetual Pools V2.
                             </Styles.Text>
                         </Styles.Content>
 

@@ -6,7 +6,6 @@ import shallow from 'zustand/shallow';
 import { Container } from '~/components/General/Container';
 import Hide from '~/components/General/Hide';
 import Show from '~/components/General/Show';
-import { LauncherToggle } from '~/components/Nav/Navbar/Buttons';
 import HamburgerMenu from '~/components/Nav/Navbar/MobileMenus/HamburgerMenu';
 import LauncherMenu from '~/components/Nav/Navbar/MobileMenus/LauncherMenu';
 import { PopoutButtons } from '~/components/Nav/Navbar/Popouts/Buttons';
@@ -71,24 +70,8 @@ const NavBarContent: React.FC = () => {
         }
     };
 
-    const handleLauncherOpen = () => {
-        if (navMenuOpen) {
-            setNavMenuOpen(false);
-            setTimeout(() => {
-                setLauncherMenuOpen(true);
-            }, ANIMATION_DURATION * 1000 * 2);
-        } else {
-            setNavMenuOpen(false);
-            setLauncherMenuOpen(true);
-        }
-    };
-
     const handleMenuClose = useCallback(() => {
         setNavMenuOpen(false);
-    }, []);
-
-    const handleLauncherClose = useCallback(() => {
-        setLauncherMenuOpen(false);
     }, []);
 
     // Close nav after hitting desktop breakpoint
@@ -161,24 +144,6 @@ const NavBarContent: React.FC = () => {
                                     </a>
                                 </Link>
                             </li>
-                            <li className={listItemStyles}>
-                                <Link href="/stake" passHref>
-                                    <a className={classNames(linkStyles, route === 'stake' ? selectedStyles : '')}>
-                                        Stake
-                                    </a>
-                                </Link>
-                            </li>
-                            <li className={listItemStyles}>
-                                <a
-                                    href="https://pools.docs.tracer.finance"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={linkStyles}
-                                    onClick={handleMenuClose}
-                                >
-                                    <span>Docs</span>
-                                </a>
-                            </li>
                         </ul>
                         <div className="flex justify-end">
                             <Show.MD display="flex">
@@ -189,13 +154,6 @@ const NavBarContent: React.FC = () => {
                                 <PopoutButtons />
                             </Show.MD>
                             <Hide.LG display="flex">
-                                <Hide.MD display="flex">
-                                    <LauncherToggle
-                                        onClick={launcherMenuOpen ? handleLauncherClose : handleLauncherOpen}
-                                        isSelected={launcherMenuOpen}
-                                        navMenuOpen={navMenuOpen || launcherMenuOpen}
-                                    />
-                                </Hide.MD>
                                 <HamburgerMenu
                                     onClick={navMenuOpen ? handleMenuClose : handleMenuOpen}
                                     isSelected={navMenuOpen}

@@ -8,7 +8,6 @@ import { PopoutContainer } from './styles';
 
 export const PopoutButtons: React.FC = () => {
     const [showSettingsPopout, setShowSettingsPopout] = useState(false);
-    const [showLauncherPopout, setShowLauncherPopout] = useState(false);
     const { navMenuOpen, setNavMenuOpen } = useContext(NavContext);
 
     return (
@@ -16,12 +15,6 @@ export const PopoutButtons: React.FC = () => {
             <SettingsButton
                 showSettingsPopout={showSettingsPopout}
                 setShowSettingsPopout={setShowSettingsPopout}
-                navMenuOpen={navMenuOpen}
-                setNavMenuOpen={setNavMenuOpen}
-            />
-            <AppLaunchButton
-                showLauncherPopout={showLauncherPopout}
-                setShowLauncherPopout={setShowLauncherPopout}
                 navMenuOpen={navMenuOpen}
                 setNavMenuOpen={setNavMenuOpen}
             />

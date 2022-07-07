@@ -13,9 +13,8 @@ module.exports = {
     },
 
     env: {
-        siteTitle: 'Tracer Perpetual Pools',
+        siteTitle: 'Pong',
         siteDescription: '',
-        siteUrl: 'https://pools.tracer.finance',
         siteImagePreviewUrl: 'img/opengraph/main.png',
     },
 
@@ -24,24 +23,8 @@ module.exports = {
             { source: '/pools', destination: '/trade', permanent: true },
             { source: '/bridge', destination: 'https://bridge.arbitrum.io/', permanent: true },
             { source: '/stakebpt', destination: '/stake', permanent: true },
-            { source: '/privacy-policy', destination: 'https://tracer.finance/privacy-policy', permanent: true },
-            {
-                source: '/terms-of-use',
-                destination: 'https://tracer.finance/privacy-policy#terms-of-use',
-                permanent: true,
-            },
-            {
-                source: '/disclaimer',
-                destination: 'https://tracer.finance/privacy-policy#interfaces-disclaimer',
-                permanent: true,
-            },
             { source: '/portfolio/history', destination: '/portfolio', permanent: true },
             { source: '/portfolio/commits', destination: '/portfolio', permanent: true },
-            {
-                source: '/disclaimer',
-                destination: 'https://tracer.finance/privacy-policy#interfaces-disclaimer',
-                permanent: true,
-            },
         ];
     },
 

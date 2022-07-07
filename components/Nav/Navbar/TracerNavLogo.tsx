@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import PoolsLogo from '/public/img/logos/tracer/tracer_perpetual_pools.svg';
+import PoolsLogo from '/public/img/logos/tracer/tracer_no_text.svg';
 
 const TracerNavLogo: React.FC<{ onClick: () => void }> = ({ onClick }) => {
     return (
