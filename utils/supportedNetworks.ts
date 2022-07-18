@@ -3,7 +3,11 @@ import { KnownNetwork, NETWORKS } from '@tracer-protocol/pools-js';
 export const isArbitrumNetwork = (networkId: string): boolean =>
     networkId === NETWORKS.ARBITRUM || networkId === NETWORKS.ARBITRUM_RINKEBY;
 
-const supportedNetworks: string[] = [NETWORKS.ARBITRUM, NETWORKS.ARBITRUM_RINKEBY];
+const supportedNetworks: string[] = [
+    NETWORKS.ARBITRUM,
+    NETWORKS.ARBITRUM_RINKEBY,
+    NETWORKS.GOERLI,
+];
 
 // for now this is exactly the same as the function above
 export const isSupportedNetwork = (networkId: number | string | undefined): boolean => {

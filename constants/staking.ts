@@ -133,4 +133,8 @@ export const farmConfig: Record<KnownNetwork, FarmConfig> = {
         poolFarms: [],
         sushiRouterAddress: '',
     },
+    [NETWORKS.GOERLI]: {
+        poolFarms: [],
+        sushiRouterAddress: '',
+    },
 };

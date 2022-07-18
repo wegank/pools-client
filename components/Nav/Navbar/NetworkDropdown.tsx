@@ -65,6 +65,9 @@ export default (({ className }) => {
             >
                 Rinkeby
             </Option>
+            <Option value={NETWORKS.GOERLI} onClick={() => switchNetworks(provider, NETWORKS.GOERLI)}>
+                Görli
+            </Option>
         </TWPopup>
     );
 }) as React.FC<{

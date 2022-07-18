@@ -1,0 +1,73 @@
+diff --git a/node_modules/@tracer-protocol/pools-js/data/poolList.js b/node_modules/@tracer-protocol/pools-js/data/poolList.js
+index 05a4f7d..bff2f2d 100644
+--- a/node_modules/@tracer-protocol/pools-js/data/poolList.js
++++ b/node_modules/@tracer-protocol/pools-js/data/poolList.js
+@@ -20,14 +20,16 @@ const {
+   ARBITRUM_RINKEBY,
+   MAINNET,
+   RINKEBY,
+-  KOVAN
++  KOVAN,
++  GOERLI
+ } = _utils.NETWORKS;
+ const poolList = {
+   [ARBITRUM]: arbitrumPoolList.pools,
+   [ARBITRUM_RINKEBY]: arbitrumRinkebyPoolList.pools,
+   [MAINNET]: [],
+   [RINKEBY]: [],
+-  [KOVAN]: []
++  [KOVAN]: [],
++  [GOERLI]: []
+ }; // construct pool map so it is easier to access specific pools
+ 
+ exports.poolList = poolList;
+diff --git a/node_modules/@tracer-protocol/pools-js/data/tokenList.js b/node_modules/@tracer-protocol/pools-js/data/tokenList.js
+index 93e527f..fb269ed 100644
+--- a/node_modules/@tracer-protocol/pools-js/data/tokenList.js
++++ b/node_modules/@tracer-protocol/pools-js/data/tokenList.js
+@@ -12,7 +12,8 @@ const {
+   ARBITRUM_RINKEBY,
+   MAINNET,
+   RINKEBY,
+-  KOVAN
++  KOVAN,
++  GOERLI
+ } = _utils.NETWORKS;
+ const tokenList = {
+   [ARBITRUM]: [{
+@@ -44,7 +45,8 @@ const tokenList = {
+     decimals: 6,
+     address: '0x4DBCdF9B62e891a7cec5A2568C3F4FAF9E8Abe2b'
+   }],
+-  [KOVAN]: []
++  [KOVAN]: [],
++  [GOERLI]: []
+ };
+ const tokenMap = Object.assign({}, ...Object.keys(tokenList).map(key => ({
+   [key]: Object.assign({}, ...tokenList[key].map(token => ({
+diff --git a/node_modules/@tracer-protocol/pools-js/utils/constants.d.ts b/node_modules/@tracer-protocol/pools-js/utils/constants.d.ts
+index 30b2c92..646374e 100644
+--- a/node_modules/@tracer-protocol/pools-js/utils/constants.d.ts
++++ b/node_modules/@tracer-protocol/pools-js/utils/constants.d.ts
+@@ -4,6 +4,7 @@ export declare const NETWORKS: {
+     readonly MAINNET: "1";
+     readonly RINKEBY: "4";
+     readonly KOVAN: "42";
++    readonly GOERLI: "5";
+ };
+ export declare const TCR_DECIMALS = 18;
+ export declare const TEST_TOKEN_DECIMALS = 18;
+diff --git a/node_modules/@tracer-protocol/pools-js/utils/constants.js b/node_modules/@tracer-protocol/pools-js/utils/constants.js
+index aeb37a1..6e6601b 100644
+--- a/node_modules/@tracer-protocol/pools-js/utils/constants.js
++++ b/node_modules/@tracer-protocol/pools-js/utils/constants.js
+@@ -9,7 +9,8 @@ const NETWORKS = {
+   ARBITRUM: '42161',
+   MAINNET: '1',
+   RINKEBY: '4',
+-  KOVAN: '42'
++  KOVAN: '42',
++  GOERLI: '5'
+ };
+ exports.NETWORKS = NETWORKS;
+ const TCR_DECIMALS = 18;
